@@ -1,7 +1,8 @@
-This project is originally developed by Quentin Young. I tested it on the USBArmory Mark II and make some modifications to the script. Basically, I cross-compiled it to be a completely statically linked binary and scp it to the USBArmory. Also, I simplified the USB HID keyboard descriptor to Standard Boot Keyboard.
+This project is originally developed by Quentin Young. I tested it on the USBArmory Mark II and make some modifications to the script. Basically, I cross-compiled it to be a completely statically linked binary and scp it to the USBArmory. Also, I simplified the USB HID keyboard descriptor to Standard Boot Keyboard. Modifications are made to hid-ecm-ez.sh.
 
 below is the command to run the attack.
 ```bash
+sudo bash hid-ecm-ez.sh
 sudo ./type -s example.txt -l english-103P.layout
 ```
 If the script is not working, you can try a simpler test by 
