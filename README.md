@@ -15,9 +15,22 @@ echo -ne "\x00\x00\x04\x00\x00\x00\x00\x00" > /dev/hidg0  # Press 'A'
 sleep 0.1
 echo -ne "\x00\x00\x00\x00\x00\x00\x00\x00" > /dev/hidg0  # Release 'A'
 ```
-Use sudo evtest to check if the keyboard is working on host machine.
+Use sudo evtest to check if the keyboard is working on host machine.\
 
-
+Note: When you sudo bash hid-ecm-ez.sh, the ssh connection will be terminated. You need to reset IP address to the port by:
+### On USB Armory (via UART):
+```bash
+sudo ip addr add 192.168.2.1/24 dev usb0
+sudo ip link set usb0 up
+```
+### On Host Machine:
+```bash
+sudo ip addr add 192.168.100.3/24 dev enx1a5589a26942
+```
+Then, try SSH again:
+```bash
+ssh root@192.168.100.2
+```
 
 
 armory-keyboard
