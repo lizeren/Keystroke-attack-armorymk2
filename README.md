@@ -1,3 +1,24 @@
+This project is originally developed by Quentin Young. I tested it on the USBArmory Mark II and make some modifications to the script. Basically, I cross-compiled it to be a completely statically linked binary and scp it to the USBArmory. Also, I simplified the USB HID keyboard descriptor to Standard Boot Keyboard.
+
+below is the command to run the attack.
+```bash
+sudo ./type -s example.txt -l english-103P.layout
+```
+If the script is not working, you can try a simpler test by 
+```bash
+sudo chmod 666 /dev/hidg0
+```
+Then
+```bash
+echo -ne "\x00\x00\x04\x00\x00\x00\x00\x00" > /dev/hidg0  # Press 'A'
+sleep 0.1
+echo -ne "\x00\x00\x00\x00\x00\x00\x00\x00" > /dev/hidg0  # Release 'A'
+```
+Use sudo evtest to check if the keyboard is working on host machine.
+
+
+
+
 armory-keyboard
 ===============
 
