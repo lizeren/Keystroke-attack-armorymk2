@@ -31,7 +31,11 @@ Then, try SSH again:
 ```bash
 ssh root@192.168.100.2
 ```
-
+### scp the binary from the host machine to the USBArmory:
+In the top directory of this repo, run:
+```bash
+scp build/type usbarmory@192.168.100.2:/home/usbarmory
+```
 
 armory-keyboard
 ===============
